@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Price Comparison</title>
+ <style>
+  body {
+   font-family: sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background-color: #f5f5f5; /* Light gray background */
+  }
+
+  .container {
+   background-color: #fff;
+   padding: 30px;
+   border-radius: 10px;
+   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+   text-align: center;
+   margin-bottom: 20px;
+  }
+
+  label {
+   display: block;
+   margin-bottom: 5px;
+  }
+
+  input,
+  select {
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   margin-bottom: 10px;
+   width: 100%;
+  }
+
+  button {
+   background-color: #4CAF50; /* Green */
+   color: white;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+  }
+
+  .results {
+   margin-top: 20px;
+  }
+
+  .results p {
+   font-weight: bold;
+   margin-bottom: 5px;
+  }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <h1>Price Comparison</h1>
+  <div class="form-group">
+   <label for="price1">Price of item 1:</label>
+   <input type="number" id="price1" name="price1">
+  </div>
+  <div class="form-group">
+   <label for="weight1">Weight of item 1:</label>
+   <input type="number" id="weight1" name="weight1">
+   <select id="unit1">
+    <option value="1">Ounces</option>
+    <option value="0.0625">Pounds</option>
+    <option value="0.035274">Grams</option>
+   </select>
+  </div>
+  <div class="form-group">
+   <label for="price2">Price of item 2:</label>
+   <input type="number" id="price2" name="price2">
+  </div>
+  <div class="form-group">
+   <label for="weight2">Weight of item 2:</label>
+   <input type="number" id="weight2" name="weight2">
+   <select id="unit2">
+    <option value="1">Ounces</option>
+    <option value="0.0625">Pounds</option>
+    <option value="0.035274">Grams</option>
+   </select>
+  </div>
+  <button onclick="compare()">Compare</button>
+  <div class="results">
+   <p id="result"></p>
+   <p id="times"></p>
+   <p id="savings"></p>
+   <p id="percentage"></p>
+  </div>
+ </div>
+
+ <script>
+   function compare() {
+   var price1 = document.getElementById("price1").value;
+   var weight1 = document.getElementById("weight1").value * document.getElementById("unit1").value;
+   var price2 = document.getElementById("price2").value;
+   var weight2 = document.getElementById("weight2").value * document.getElementById("unit2").value;
+
+   var cost1 = price1 / weight1;
+   var cost2 = price2 / weight2;
+
+   var result = document.getElementById("result");
+   var times = document.getElementById("times");
+   var savings = document.getElementById("savings");
+   var percentage = document.getElementById("percentage");
+
+   if (cost1 < cost2) {
+    result.innerHTML = "Item 1 is more cost effective.";
+    times.innerHTML = "Item 1 is " + (cost2 / cost1).toFixed(2) + " times more cost effective than Item 2.";
+    savings.innerHTML = "Choosing Item 1 over Item 2 saves $" + ((cost2 - cost1) * weight1).toFixed(2) + ".";
+    percentage.innerHTML = "Item 1 is " + ((cost2 / cost1 - 1) * 100).toFixed(2) + "% more cost effective than Item 2.";
+   } else if (cost1 > cost2) {
+    result.innerHTML = "Item 2 is more cost effective.";
+    times.innerHTML = "Item 2 is " + (cost1 / cost2).toFixed(2) + " times more cost effective than Item 1.";
+    savings.innerHTML = "Choosing Item 2 over Item 1 saves $" + ((cost1 - cost2) * weight2).toFixed(2) + ".";
+    percentage.innerHTML = "Item 2 is " + ((cost1 / cost2 - 1) * 100).toFixed(2) + "% more cost effective than Item 1.";
+   } else {
+    result.innerHTML = "Both items have the same cost effectiveness.";
+    times.innerHTML = "";
+    savings.innerHTML = "";
+    percentage.innerHTML = "";
+   }
+  }
+ </script>
+</body>
+</html>
