@@ -130,7 +130,7 @@
    } else if (cost1 > cost2) {
     updateResult("result", "Item 2 is more cost effective.");
     updateResult("times", "Item 2 is " + (cost1 / cost2).toFixed(2) + " times more cost effective than Item 1.");
-    updateResult("percentage", "Item 2 is " + ((cost1 / cost2 - 1) * 100).toFixed(2) + "% more cost effective than Item 1.");
+    updateResult("percentage", "Item 2 is " + ((cost1 / cost2) * 100).toFixed(2) + "% more cost effective than Item 1.");
     updateResult("pricePerOunce1", "Price per oz for Item 2: $" + pricePerOunce2 + " Vs Item 1's: $" + pricePerOunce1)
    } else {
     updateResult("result", "Both items have the same cost effectiveness.");
