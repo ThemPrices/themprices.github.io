@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bang Fo Yo Buck</title>
+    <title>Cliff's Money Saver</title>
     <style>
       body {
         font-family: sans-serif;
@@ -68,7 +68,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Bang Fo Yo Buck</h1>
+      <h1>Cliff's Money Saver</h1>
       <div class="form-group">
         <label for="price1">Price of item 1:</label>
         <input type="number" id="price1" name="price1">
@@ -131,6 +131,9 @@
             updateResult("pricePerOunce1", "Price per Pound for Item 2: $" + pricePerOunce2 + " Vs Item 1's: $" + pricePerOunce1)
           } else {
             updateResult("result", "Both items have the same cost effectiveness.");
+            updateResult("times", " ");
+            updateResult("percentage", " ");
+            updateResult("pricePerOunce1", " ")
           }
         }
 
