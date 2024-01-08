@@ -60,29 +60,6 @@
       opacity: 1; /* Show when the 'visible' class is applied */
     }
 
-    .toggle-checkboxes {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 15px;
-    }
-
-    .toggle-checkboxes label {
-      font-size: 14px;
-    }
-
-    .toggle-checkboxes input[type="checkbox"] {
-      height: 15px;
-      width: 15px;
-      margin-right: 5px;
-      appearance: none; /* Remove default checkbox style */
-      border: 2px solid #ccc;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .toggle-checkboxes input[type="checkbox"]:checked {
-      background-color: #4CAF50; /* Green background when checked */
-    }
   </style>
 </head>
 <body>
@@ -121,21 +98,7 @@
       <p id="savings"></p>
       <p id="percentage"></p>
     </div>
-    <div class="toggle-checkboxes">
-      <label for="toggle-times">
-        <input type="checkbox" id="toggle-times" checked="" onclick="toggleResult('times')">
-        Times
-      </label>
-      <label for="toggle-savings">
-        <input type="checkbox" id="toggle-savings" checked="" onclick="toggleResult('savings')">
-        Savings
-      </label>
-      <label for="toggle-percentage">
-        <input type="checkbox" id="toggle-percentage" checked="" onclick="toggleResult('percentage')">
-        Percentage
-      </label>
-    </div>
-  </div>
+
 
   <script>
     function compare() {
@@ -179,7 +142,7 @@
         setTimeout(function () {
           element.innerHTML = text;
           element.classList.add("visible");
-        }, 800); // Set a delay to allow the fade-out effect to complete before updating content and fading in
+        }, 700); // Set a delay to allow the fade-out effect to complete before updating content and fading in
       }
     }
 
