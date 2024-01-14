@@ -113,9 +113,9 @@
       <div class="results">
         <p id="result"></p>
         <p id="times"></p>
-        <p id="savings"></p>
         <p id="percentage"></p>
         <p id="pricePerOunce1"></p>
+        <p id="savings"></p>
       </div>
       <script>
         function compare() {
@@ -131,6 +131,7 @@
           updateResult("times", "");
           updateResult("savings", "");
           updateResult("percentage", "");
+          updateResult("pricePerOunce1", "")
           var cost1 = price1 / weight1;
           var cost2 = price2 / weight2;
           var pricePerOunce1 = (price1 / (weight1 / 16)).toFixed(3);
@@ -138,18 +139,21 @@
           if (cost1 < cost2) {
             updateResult("result", "Item 1 is more cost effective.");
             updateResult("times", "Item 1 is " + (cost2 / cost1).toFixed(2) + " times more cost effective than Item 2.");
-            updateResult("percentage", "Item 1 is " + ((cost2 / cost1) * 100).toFixed(2) + "% more cost effective than Item 2.");
-            updateResult("pricePerOunce1", "Price per Pound for Item 1: $" + pricePerOunce1 + " Vs Item 2's: $" + pricePerOunce2)
+            updateResult("percentage", "Item 1 is " + (((cost2 / cost1) * 100) - 1).toFixed(2) + "% more cost effective than Item 2.");
+            updateResult("pricePerOunce1", "Price per Pound for Item 1: $" + pricePerOunce1 + " Vs Item 2's: $" + pricePerOunce2);
+            updateResult("savings", "You save $" + (pricePerOunce1 - pricePerOunce2).toFixed(2) + " per pound buying item 1")
           } else if (cost1 > cost2) {
             updateResult("result", "Item 2 is more cost effective.");
             updateResult("times", "Item 2 is " + (cost1 / cost2).toFixed(2) + " times more cost effective than Item 1.");
-            updateResult("percentage", "Item 2 is " + ((cost1 / cost2) * 100).toFixed(2) + "% more cost effective than Item 1.");
+            updateResult("percentage", "Item 2 is " + (((cost1 / cost2) * 100) - 1).toFixed(2) + "% more cost effective than Item 1.");
             updateResult("pricePerOunce1", "Price per Pound for Item 2: $" + pricePerOunce2 + " Vs Item 1's: $" + pricePerOunce1)
+            updateResult("savings", "You save $" + (pricePerOunce2 - pricePerOunce1).toFixed(2) + " per pound buying item 2")
           } else {
             updateResult("result", "Both items have the same cost effectiveness.");
             updateResult("times", " ");
             updateResult("percentage", " ");
             updateResult("pricePerOunce1", " ")
+            updateResult("savings", " ")
           }
         }
 
