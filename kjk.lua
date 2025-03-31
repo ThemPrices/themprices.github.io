@@ -20,7 +20,7 @@ local LocalPlayer = Players.LocalPlayer
 LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.InProgress then
         QueueOnTeleport(
-            "https://raw.githubusercontent.com/ThemPrices/meat/refs/heads/main/lapppp.lua?token=GHSAT0AAAAAADBNCHW5ZVOZ62ZYGC3P2NL2Z7KJMFA')()"
+            "https://raw.githubusercontent.com/ThemPrices/themprices.github.io/refs/heads/main/kjk.lua"
         )
     end
 end)
